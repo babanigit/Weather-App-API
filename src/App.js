@@ -12,20 +12,33 @@ function App() {
   };
 
   const [search, setSearch] = useState("");
+
+  // here we are storing the data from api
   const [weather, setWeather] = useState({});
 
   const searchPressed = () => {
-    console.log(search);
+    console.log("search... " + search);
 
     // getting data from api
     fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`)
       .then((res) => res.json())
       .then((result) => {
-
         setWeather(result);
+        console.log("fetching data... ");
         console.log(result);
       });
   };
+
+  // var weatherName;
+  try {
+    var weatherName = weather.name;
+    var weatherMainTemp = weather.main.temp;
+    var weatherMain = weather.weather[0].main;
+    var weatherDesc = weather.weather[0].description;
+  } catch (error) {
+    console.log("caught error... " + error);
+    // alert("enter data")
+  }
 
   return (
     <>
@@ -42,11 +55,11 @@ function App() {
           <button onClick={searchPressed}> search</button>
         </div>
         <div>
-        <p>data..</p>
-        <p>{weather.name}</p>
-        <p>{weather.main.temp}</p>
-        <p>{weather.weather[0].main}</p>
-        <p>{weather.weather[0].description}</p>
+          <p>data..</p>
+          <p>{weatherName}</p>
+          <p>{weatherMainTemp}</p>
+          <p>{weatherMain}</p>
+          <p>{weatherDesc}</p>
         </div>
       </div>
 
