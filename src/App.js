@@ -43,23 +43,28 @@ function App() {
   return (
     <>
       {/* weather */}
-      <div className=" w-screen h-screen py-40 bg-purple-200 grid justify-center items-center ">
-        <div>
-          <p> Weather</p>
+      <div className=" w-screen h-screen py-40 bg-gray-800 text-white grid justify-center items-center ">
+        <div className=" w-screen px-12  flex justify-center">
+         
           <input
+          className=" text-black rounded-md px-3 mx-6"
             placeholder="enter city/name..."
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button onClick={searchPressed}> search</button>
-        </div>
-        <div>
-          <p>data..</p>
-          <p>{weatherName}</p>
-          <p>{weatherMainTemp}</p>
-          <p>{weatherMain}</p>
-          <p>{weatherDesc}</p>
+
+          <button
+          className=" border-spacing-6 rounded-md  border-red-600"
+          onClick={searchPressed}> search</button>
+
+        </div >
+        <div className=" grid justify-around">
+          <p className="m-6">data..</p>
+          <p>city-{weatherName}</p>
+          <p>temperature- {weatherMainTemp}</p>
+          <p>weather- {weatherMain}</p>
+          <p>description- {weatherDesc}</p>
         </div>
       </div>
 
