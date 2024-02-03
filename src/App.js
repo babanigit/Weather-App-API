@@ -45,32 +45,45 @@ function App() {
       {/* weather */}
 
       {/* div 1 */}
-      <div className=" w-screen h-screen  bg-gray-800 text-white grid justify-center items-center ">
-        <div className=" w-screen flex justify-around flex-row justify-center">
-          <input
-            className=" text-black h-12 w-full p-4 m-4 rounded-md flex-1 "
-            placeholder="enter city/name..."
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+      <div className=" w-screen h-screen  bg-gray-800 text-white grid grid-rows-3 gap-2 ">
+        <div className=" w-screen grid grid-rows-2 justify-around items-center">
+          <div className=" w-full h-full col-span-2 grid justify-center items-center bg-slate-200 text-black">
+            WEATHER APP
+          </div>
 
-          <button
-            className="w-20 h-12 p-4 m-4 flex flex-none justify-center items-center border-2 rounded-md  bg-gray-200 text-black"
-            onClick={searchPressed}
-          >
-            {" "}
-            search
-          </button>
+          <div className=" gird grid-cols-2">
+            <input
+              className=" text-black h-12 w-full p-4 m-4 rounded-md grid"
+              placeholder="enter city/name..."
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+
+            <button
+              className="w-20 h-12 p-4 m-4 grid justify-center items-center border-2 rounded-md  bg-gray-200 text-black"
+              onClick={searchPressed}
+            >
+              search
+            </button>
+          </div>
         </div>
 
         {/* div 2 */}
-        <div className=" grid justify-around">
-          <p className="m-6">data..</p>
-          <p>city-{weatherName}</p>
-          <p>temperature- {weatherMainTemp}</p>
-          <p>weather- {weatherMain}</p>
-          <p>description- {weatherDesc}</p>
+        <div className=" w-full h-full p-2 grid justify-center items-center grid-cols-2 gap-1 row-span-2">
+          {/* <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 col-span-2 " >data..</p> */}
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl ">
+            city-{weatherName}
+          </p>
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl ">
+            temperature- {weatherMainTemp}
+          </p>
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl ">
+            weather- {weatherMain}
+          </p>
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl  ">
+            description- {weatherDesc}
+          </p>
         </div>
       </div>
 
