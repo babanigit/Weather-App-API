@@ -46,14 +46,14 @@ function App() {
 
       {/* div 1 */}
       <div className=" w-screen h-screen  bg-gray-800 text-white grid grid-rows-3 gap-2 ">
-        <div className=" w-screen grid grid-rows-2 justify-around items-center">
-          <div className=" w-full h-full col-span-2 grid justify-center items-center bg-slate-200 text-black">
+        <div className=" w-screen p-2 grid grid-rows-2 justify-around items-center">
+          <div className=" w-full h-full col-span-12 grid justify-center items-center bg-slate-200 text-black">
             WEATHER APP
           </div>
 
-          <div className=" gird grid-cols-2">
+          <div className=" gird grid-cols-3">
             <input
-              className=" text-black h-12 w-full p-4 m-4 rounded-md grid"
+              className=" text-black h-12 w-full p-4 m-4 rounded-md grid col-span-2"
               placeholder="enter city/name..."
               type="text"
               value={search}
