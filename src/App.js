@@ -43,11 +43,12 @@ function App() {
   return (
     <>
       {/* weather */}
-      <div className=" w-screen h-screen py-40 bg-gray-800 text-white grid justify-center items-center ">
-        <div className=" w-screen px-12  flex justify-center">
-         
+
+      {/* div 1 */}
+      <div className=" w-screen h-screen  bg-gray-800 text-white grid justify-center items-center ">
+        <div className=" w-screen flex justify-around flex-row justify-center">
           <input
-          className=" text-black rounded-md px-3 mx-6"
+            className=" text-black h-12 w-full p-4 m-4 rounded-md flex-1 "
             placeholder="enter city/name..."
             type="text"
             value={search}
@@ -55,10 +56,15 @@ function App() {
           />
 
           <button
-          className=" border-spacing-6 rounded-md  border-red-600"
-          onClick={searchPressed}> search</button>
+            className="w-20 h-12 p-4 m-4 flex flex-none justify-center items-center border-2 rounded-md  bg-gray-200 text-black"
+            onClick={searchPressed}
+          >
+            {" "}
+            search
+          </button>
+        </div>
 
-        </div >
+        {/* div 2 */}
         <div className=" grid justify-around">
           <p className="m-6">data..</p>
           <p>city-{weatherName}</p>
