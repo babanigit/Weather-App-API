@@ -45,15 +45,17 @@ function App() {
       {/* weather */}
 
       {/* div 1 */}
-      <div className=" w-screen h-screen  bg-gray-800 text-white grid grid-rows-3 gap-2 ">
-        <div className=" w-screen p-2 grid grid-rows-2 justify-around items-center">
-          <div className=" w-full h-full col-span-12 grid justify-center items-center bg-slate-200 text-black">
+      <div className=" w-screen h-screen p-2  bg-gray-800 text-white grid grid-rows-3 gap-2 ">
+        
+        <div className=" w-screen p-2  grid grid-rows-3 justify-around items-center">
+          <div className=" w-screen h-full grid row-span-2 rounded-3xl justify-center items-center bg-slate-600 text-white">
             WEATHER APP
           </div>
 
-          <div className=" gird grid-cols-3">
+            {/* its align in horizontal  */}
+          <div className=" flex gap-2">
             <input
-              className=" text-black h-12 w-full p-4 m-4 rounded-md grid col-span-2"
+              className=" text-black h-12 w-full p-4 m-4 rounded-md "
               placeholder="enter city/name..."
               type="text"
               value={search}
@@ -61,7 +63,7 @@ function App() {
             />
 
             <button
-              className="w-20 h-12 p-4 m-4 grid justify-center items-center border-2 rounded-md  bg-gray-200 text-black"
+              className="w-20 h-12 p-4 m-4 border-2 rounded-md  bg-gray-200 text-black"
               onClick={searchPressed}
             >
               search
@@ -72,16 +74,16 @@ function App() {
         {/* div 2 */}
         <div className=" w-full h-full p-2 grid justify-center items-center grid-cols-2 gap-1 row-span-2">
           {/* <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 col-span-2 " >data..</p> */}
-          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl ">
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-700 border-2 rounded-lg text-2xl ">
             city-{weatherName}
           </p>
-          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl ">
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-700 border-2 rounded-lg text-2xl ">
             temperature- {weatherMainTemp}
           </p>
-          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl ">
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-700 border-2 rounded-lg text-2xl ">
             weather- {weatherMain}
           </p>
-          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-500 border-2 rounded-lg text-2xl  ">
+          <p className=" h-full w-full flex items-center justify-center flex-row bg-slate-700 border-2 rounded-lg text-2xl  ">
             description- {weatherDesc}
           </p>
         </div>
