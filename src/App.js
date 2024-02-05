@@ -45,7 +45,7 @@ function App() {
       {/* weather */}
 
       {/* div 1 */}
-      <div className=" w-screen h-screen p-2  bg-gray-800 text-white grid grid-rows-3 gap-2 ">
+      <div className=" w-screen h-screen   bg-gray-800 text-white grid grid-rows-3 gap-3">
         
         <div className=" w-screen p-2  grid grid-rows-3 justify-around items-center">
           <div className=" w-screen h-full grid row-span-2 rounded-3xl justify-center items-center bg-slate-600 text-white">
