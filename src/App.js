@@ -16,17 +16,34 @@ function App() {
   // here we are storing the data from api
   const [weather, setWeather] = useState({});
 
-  const searchPressed = () => {
+   const  searchPressed = async() => {
     console.log("search... " + search);
 
     // getting data from api
-    fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setWeather(result);
+    // fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`)
+    //   .then((res) => res.json())
+    //   .then((result) => {
+    //     setWeather(result);
+    //     console.log("fetching data... ");
+    //     console.log(result);
+    //   });
+
+    
+// using await 
+      const res = await fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`);
+      try {
+        const data = await res.json();
+        setWeather(data)
         console.log("fetching data... ");
-        console.log(result);
-      });
+            console.log(data);
+        
+      } catch (error) {
+        console.log(error)
+      }
+
+
+
+
   };
 
   // var weatherName;
