@@ -16,7 +16,7 @@ function App() {
   // here we are storing the data from api
   const [weather, setWeather] = useState({});
 
-   const  searchPressed = async() => {
+  const searchPressed = async () => {
     console.log("search... " + search);
 
     // getting data from api
@@ -28,22 +28,19 @@ function App() {
     //     console.log(result);
     //   });
 
-    
-// using await 
-      const res = await fetch(`${api.base}weather?q=${search}&units=metric&APPID=${api.key}`);
-      try {
-        const data = await res.json();
-        setWeather(data)
-        console.log("fetching data... ");
-            console.log(data);
-        
-      } catch (error) {
-        console.log(error)
-      }
-
-
-
-
+    // using await
+    const res = await fetch(
+      `${api.base}weather?q=${search}&units=metric&APPID=${api.key}`
+    );
+    console.log(res);
+    try {
+      const data = await res.json();
+      setWeather(data);
+      console.log("fetching data... ");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // var weatherName;
@@ -63,13 +60,12 @@ function App() {
 
       {/* div 1 */}
       <div className=" w-screen h-screen   bg-gray-800 text-white grid grid-rows-3 gap-3">
-        
         <div className=" w-screen p-2  grid grid-rows-3 justify-around items-center">
           <div className=" w-screen h-full grid row-span-2 rounded-3xl justify-center items-center bg-slate-600 text-white">
             WEATHER APP
           </div>
 
-            {/* its align in horizontal  */}
+          {/* its align in horizontal  */}
           <div className=" flex gap-2">
             <input
               className=" text-black h-12 w-full p-4 m-4 rounded-md "
