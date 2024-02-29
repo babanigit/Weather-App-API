@@ -15,10 +15,11 @@ import sunnyRainny from "../src/Assets/png/sunny-rainny.png";
 import thunder from "../src/Assets/png/thunder.png";
 import windySunny from "../src/Assets/png/windy-sunny.png";
 
-
-
-
 interface WeatherData {
+  coord: {
+    lon: number;
+    lat: number;
+  };
   name: string;
   timezone: string;
   main: {
@@ -52,9 +53,9 @@ function App() {
       const res = await fetch(
         `${api.base}weather?q=${search}&units=metric&APPID=${api.key}`
       );
-      const data: WeatherData = await res.json();
-      console.log(data);
-      setWeather(data);
+      const jsonData: WeatherData = await res.json();
+      console.log(jsonData);
+      setWeather(jsonData);
     } catch (error) {
       console.error(error);
     }
@@ -73,23 +74,52 @@ function App() {
     var speed = weather?.wind.speed;
     var timeZone = weather?.timezone;
     var WeatherIcon = weather?.weather[0].icon;
+    var corLong = weather?.coord.lon;
 
     console.log(weatherMain);
   } catch (error) {
     console.log(error);
   }
 
-  let data: any = sun;
-  let BackGround:string="bg-red-200"
+  let data: string = sun;
+  let BackGround: string = "bg-red-200";
 
   try {
     switch (WeatherIcon) {
-      case "50d":
+      case "50n":
         data = sunnyClound;
-        BackGround="bg-yello-200"
+        BackGround = "bg-yello-200";
         break;
 
-      case "01d":
+      case "01n":
+        data = sunnyClound;
+        break;
+
+      case "02n":
+        data = sunnyClound;
+        break;
+
+      case "03n":
+        data = sunnyClound;
+        break;
+
+      case "04n":
+        data = windySunny;
+        break;
+
+      case "09n":
+        data = sunnyRainny;
+        break;
+
+      case "10n":
+        data = rain;
+        break;
+
+      case "11dn":
+        data = thunder;
+        break;
+
+      case "13n":
         data = windySunny;
         break;
 
@@ -99,14 +129,15 @@ function App() {
   } catch (error) {
     console.error(error);
   }
-  let bg:string=" ";
-  let red:string="bg-red-200"
 
   return (
     <>
       <div
-      // style={{background:(red)}}
-      className={" grid grid-flow-row grid-rows-4 h-screen w-full  "+ (BackGround)}>
+        // style={{background:(red)}}
+        className={
+          " grid grid-flow-row grid-rows-4 h-screen w-full  " + BackGround
+        }
+      >
         <div className="grid grid-flow-row  grid-rows-3 ">
           <div className="grid  h-full row-span-2 place-items-center text-4xl ">
             weather app
@@ -128,28 +159,34 @@ function App() {
           </div>
         </div>
 
-        <div className=" grid row-span-3 bg-blue-400 h-full w-full place-content-center">
-          <p className="h-full w-full flex items-center justify-center flex-row border-2 rounded-lg text-2xl ">
+        <div className=" grid row-span-3 grid-rows-8 grid-cols-4 gap-2 p-2 bg-blue-400 h-full w-full place-content-center">
+          <p className=" h-full w-full grid col-span-4 row-span-3 items-center justify-center flex-row border-2 rounded-lg text-2xl ">
             {/* <div className=" w-12">{pngData}</div> */}
-            <div className=" w-12">
+            <div className=" w-32 grid place-items-center">
               <img src={data} alt="" />
             </div>
           </p>
-          <p className="h-full w-full flex items-center justify-center flex-row bg border-2 rounded-lg text-2xl ">
+          <p className="h-full w-full grid col-span-4 items-center justify-center flex-row bg border-2 rounded-lg text-2xl ">
             city-{weatherName}
           </p>
-          <p className="h-full w-full flex items-center justify-center flex-row border-2 rounded-lg text-2xl ">
+          <p className="h-full w-full grid  items-center justify-center flex-row border-2 rounded-lg text-2xl ">
             temperature- {weatherMainTemp}
           </p>
-          <p className="h-full w-full flex items-center justify-center flex-row border-2 rounded-lg text-2xl ">
+          <p className="h-full w-full grid  items-center justify-center flex-row border-2 rounded-lg text-2xl ">
             weather- {weatherMain}
           </p>
-          <p className="h-full w-full flex items-center justify-center flex-row border-2 rounded-lg text-2xl  ">
+          <p className="h-full w-full grid  col-span-2 items-center justify-center flex-row border-2 rounded-lg text-2xl  ">
             description- {weatherDesc}
           </p>
 
-          <p className="h-full w-full flex items-center justify-center flex-row border-2 rounded-lg text-2xl ">
+          <p className="h-full w-full grid  items-center justify-center flex-row border-2 rounded-lg text-2xl ">
             timezone- {timeZone}
+          </p>
+          <p className="h-full w-full flex items-center justify-center flex-row border-2 rounded-lg text-2xl ">
+            icon- {WeatherIcon}
+          </p>
+          <p className="h-full w-full flex items-center justify-center flex-row border-2 rounded-lg text-2xl ">
+            lon- {corLong}
           </p>
         </div>
       </div>
