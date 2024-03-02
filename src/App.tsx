@@ -17,6 +17,7 @@ import windySunny from "../src/Assets/png/windy-sunny.png";
 
 import daysand from "../src/background/day_sandy.jpg";
 import daysnow from "../src/background/daysnow.jpg";
+import nightsand from "../src/background/night.sandy.jpg"
 interface WeatherData {
   coord: {
     lon: number;
@@ -114,6 +115,8 @@ function App() {
 
       case "01n":
         data = sunnyClound;
+        bg = nightsand;
+
         break;
 
       case "02n":
@@ -153,7 +156,7 @@ function App() {
         data = sunnyClound;
         // BackGround = "bg-yellow-200";
         // Opacity= "bg-opacity-50"
-        bg = daysnow;
+        bg = daysand;
         break;
 
       case "02d":
@@ -210,12 +213,12 @@ function App() {
       backgroundPosition: "center",
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
-    bgOpac: "bg-opacity-30",
+    bgOpac: "bg-opacity-60",
   };
 
   return (
     <>
-      <div style={myStyle.header}>
+      <div style={myStyle.header} className=" bg-center text-white">
         <div
           // style={myStyle.content}
           className={
@@ -229,14 +232,14 @@ function App() {
             </div>
             <div className=" grid grid-flow-col  h-full place-content-center  gap-2">
               <input
-                className="h-12 w-full p-3 rounded-md "
+                className="h-12 w-full p-3 rounded-md text-black "
                 placeholder="enter city/name..."
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
               <button
-                className="w-20 h-12 p-4 border-2 rounded-md place-content-center grid border-black "
+                className="w-20 h-12 p-4 border-2 rounded-md place-content-center grid border-white "
                 onClick={searchPressed}
               >
                 search
@@ -244,7 +247,7 @@ function App() {
             </div>
           </div>
 
-          <div className=" grid row-span-3 grid-rows-8 md:grid-rows-5 md:grid-cols-1 grid-cols-4 gap-2 p-2 h-full w-full place-content-center">
+          <div className=" text-white grid row-span-3 grid-rows-8 md:grid-rows-5 md:grid-cols-1 grid-cols-4 gap-2 p-2 h-full w-full place-content-center">
             <p className=" h-full w-full grid col-span-4 row-span-3 items-center justify-center flex-row border-2 rounded-lg text-2xl ">
               {/* <div className=" w-12">{pngData}</div> */}
               <div className=" w-32 grid place-items-center">
