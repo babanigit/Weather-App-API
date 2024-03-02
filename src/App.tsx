@@ -115,11 +115,48 @@ function App() {
         data = rain;
         break;
 
-      case "11dn":
+      case "11n":
         data = thunder;
         break;
 
       case "13n":
+        data = windySunny;
+        break;
+
+      case "50d":
+        data = sunnyClound;
+        BackGround = "bg-yello-200";
+        break;
+
+      case "01d":
+        data = sunnyClound;
+        break;
+
+      case "02d":
+        data = sunnyClound;
+        break;
+
+      case "03d":
+        data = sunnyClound;
+        break;
+
+      case "04d":
+        data = windySunny;
+        break;
+
+      case "09d":
+        data = sunnyRainny;
+        break;
+
+      case "10d":
+        data = rain;
+        break;
+
+      case "11d":
+        data = thunder;
+        break;
+
+      case "13d":
         data = windySunny;
         break;
 
