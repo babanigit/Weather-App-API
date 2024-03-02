@@ -50,6 +50,8 @@ interface MyStyle {
   content: {
     height: string;
     width: string;
+    backgroundPosition: string;
+
     backgroundColor: string;
   };
   bgOpac: string;
@@ -196,6 +198,7 @@ function App() {
       // background: 'rgba(0, 0, 0, 0.5)',
       backgroundImage: `url(${bg})`,
       height: "100vh",
+      
       // marginTop: "-70px",
       // fontSize: "50px",
       backgroundSize: "cover",
@@ -204,6 +207,7 @@ function App() {
     content: {
       height: "100%",
       width: "100%",
+      backgroundPosition: "center",
       backgroundColor: "rgba(0, 0, 0, 0.5)",
     },
     bgOpac: "bg-opacity-30",
